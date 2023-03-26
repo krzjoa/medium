@@ -18,22 +18,32 @@ w(y_i, \hat{y}_i)   \left\{
   
   
  
-Expectile_e = \sum_{i=1}^{N}error(y_i, X_i, \beta)
+Expectile_e = \frac{1}{N}\sum_{i=1}^{N}error_e(y_i, \textbf{x}_i, \beta)
 \newline
-where
+where: 
 \newline
 \newline
-error(y_i, X_i, \beta)  \left\{
+error(y_i, \textbf{x}_i, \beta)  \left\{
     \begin{array}{l}
-      (1-e)(y_i - X_i\beta)^2  \ for \ y_i < X_i\beta\\
-      e(y_i - X_i\beta)^2       \ \ \ \ \ \ \ \ for \ y_i \geq X_i\beta
+      (1-e)(y_i - \textbf{x}_i\beta)^2,  \ for \ y_i < \textbf{x}_i\beta\\
+      e(y_i - \textbf{x}_i\beta)^2,       \ \ \ \ \ \ \ \ for \ y_i \geq \textbf{x}_i\beta
     \end{array}
   \right. 
   
- \frac{\partial error(y_i, X_i, \beta)}{\partial\beta}  \left\{
+
+error(y_i, X_i, \beta)  \left\{
     \begin{array}{l}
-      -2X_i\beta(1-e)(y_i - X_i\beta)  \ for \ y_i - X_i\beta\ < 0 \\
-      -2X_i\beta e(y_i - X_i\beta)       \ \ \ \ \ \ \ \ for \ y_i - X_i\beta\  \geq 0
+      (1-e)(y_i - X_i\beta)^2  \ for \ y_i - X_i\beta < 0 \\
+      e(y_i - X_i\beta)^2       \ \ \ \ \ \ \ \ for \ y_i \geq X_i\beta
+    \end{array}
+  \right. 
+
+
+  
+ \frac{\partial error_e(y_i, \textbf{x}_i, \beta)}{\partial\beta}  \left\{
+    \begin{array}{l}
+      -2\textbf{x}_i^\mathsf{T}((1-e)(y_i - \textbf{x}_i\beta)),  \ for \ y_i - \textbf{x}_i\beta\ < 0 \\
+      -2\textbf{x}_i^\mathsf{T} (e(y_i - \textbf{x}_i\beta)),       \ \ \ \ \ \ \ \ for \ y_i - \textbf{x}_i\beta\  \geq 0
     \end{array}
   \right. 
 
