@@ -46,5 +46,41 @@ error(y_i, X_i, \beta)  \left\{
       -2\textbf{x}_i^\mathsf{T} (e(y_i - \textbf{x}_i\beta)),       \ \ \ \ \ \ \ \ for \ y_i - \textbf{x}_i\beta\  \geq 0
     \end{array}
   \right. 
+  
+ 
+
+ ExpectileLoss_\tau= \frac{1}{N} \sum_{i = 1}^{N} w_\tau(y_i, \hat{y}_i)(y_i - \hat{y}_i)^2
+\newline
+where:
+\newline
+w_\tau(y_i, \hat{y}_i)   \left\{
+    \begin{array}{l}
+      1-\tau  \ for \ y_i < \hat{y}_i\\
+      \tau    \ \ \ \ \ \ for \ y_i \geq \hat{y}_i
+    \end{array}
+  \right.
+   
+ 
+ ExpectileLoss_\tau = \frac{1}{N}\sum_{i=1}^{N}error_\tau(y_i, \textbf{x}_i, \beta)
+\newline
+where: 
+\newline
+\newline
+error_\tau(y_i, \textbf{x}_i, \beta)  \left\{
+    \begin{array}{l}
+      (1-\tau)(y_i - \textbf{x}_i\beta)^2,  \ for \ y_i < \textbf{x}_i\beta\\
+      \tau(y_i - \textbf{x}_i\beta)^2,       \ \ \ \ \ \ \ \ for \ y_i \geq \textbf{x}_i\beta
+    \end{array}
+  \right. 
+  
+ 
+ error_\tau(y_i, X_i, \beta)  \left\{
+    \begin{array}{l}
+      (1-\tau)(y_i - \textbf{x}_i\beta)^2,  \ for \ y_i - \textbf{x}_i\beta\ < 0 \\
+      \tau(y_i - \textbf{x}_i\beta)^2,       \ \ \ \ \ \ \ \ for \ y_i - \textbf{x}_i\beta\  \geq 0
+    \end{array}
+  \right. 
+
+  
 
 <!-- #endregion -->
